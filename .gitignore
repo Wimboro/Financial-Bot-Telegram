@@ -127,6 +127,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+bot_data.pickle
 
 # Spyder project settings
 .spyderproject
