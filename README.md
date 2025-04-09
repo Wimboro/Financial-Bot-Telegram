@@ -14,7 +14,7 @@ Bot Telegram ini membantu Anda mencatat keuangan pribadi. Dengan bot ini, Anda d
 ## Persyaratan
 
 - Python 3.9 atau versi lebih baru
-- Token bot Telegram (dapatkan dari [BotFather](https://core.telegram.org/bots#botfather))
+- Token bot Telegram (dapatkan dari [BotFather](https://telegram.me/BotFather))
 - Kredensial API Google Sheets
 - Kredensial Gemini API
 - File `.env` untuk konfigurasi variabel lingkungan
