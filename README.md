@@ -1,19 +1,19 @@
 # Bot Keuangan Telegram
 
-Bot Telegram untuk membantu mencatat keuangan pribadi Anda. Bot ini memungkinkan pengguna untuk mencatat transaksi, melihat laporan keuangan, dan mengelola data yang disimpan di Google Sheets.
+Bot Telegram ini membantu Anda mencatat keuangan pribadi. Dengan bot ini, Anda dapat mencatat transaksi, melihat laporan keuangan, dan mengelola data yang tersimpan di Google Sheets.
 
 ## Fitur
 
-- **Catat Transaksi**: Tambahkan transaksi pemasukan atau pengeluaran langsung melalui pesan Telegram.
-- **Integrasi Google Sheets**: Semua data disimpan di Google Sheets untuk kemudahan akses dan berbagi.
-- **Laporan Keuangan**: Lihat ringkasan pemasukan, pengeluaran, dan saldo.
+- **Catat Transaksi**: Tambahkan transaksi pemasukan atau pengeluaran langsung melalui Telegram.
+- **Integrasi Google Sheets**: Semua data disimpan di Google Sheets untuk memudahkan akses dan berbagi.
+- **Laporan Keuangan**: Lihat ringkasan pemasukan, pengeluaran, dan saldo Anda.
 - **Input Multi-Transaksi**: Catat beberapa transaksi sekaligus dalam satu pesan.
 - **Pengelolaan Data**: Hapus transaksi berdasarkan tanggal, kategori, atau semua data sekaligus.
 - **Otorisasi Pengguna**: Hanya pengguna yang diotorisasi yang dapat menggunakan bot ini.
 
 ## Persyaratan
 
-- Python 3.9 atau lebih baru
+- Python 3.9 atau versi lebih baru
 - Token bot Telegram (dapatkan dari [BotFather](https://core.telegram.org/bots#botfather))
 - Kredensial API Google Sheets
 - Kredensial Gemini API
@@ -23,7 +23,7 @@ Bot Telegram untuk membantu mencatat keuangan pribadi Anda. Bot ini memungkinkan
 
 1. Clone repositori ini:
    ```bash
-   git clone https://github.com/username/financial-bot-telegram.git
+   git clone https://github.com/Wimboro/financial-bot-telegram.git
    cd financial-bot-telegram
    ```
 
@@ -41,9 +41,22 @@ Bot Telegram untuk membantu mencatat keuangan pribadi Anda. Bot ini memungkinkan
    AUTHORIZED_USER_ID=id-user-telegram-anda
    ```
 
-4. Pastikan kredensial Google Sheets API Anda sudah diatur. Ikuti [Panduan Google Sheets API](https://developers.google.com/sheets/api/quickstart/python) untuk membuat dan mengunduh file `credentials.json`.
+4. Buat kredensial untuk mengaktifkan Google Sheets API dan Google Drive API:
+   - Masuk ke [Google Cloud Console](https://console.cloud.google.com/apis/credentials).
+   - Klik **Create Credentials**, pilih **Service Account**, dan isi informasi yang diminta.
+   - Pilih peran sebagai **Owner** atau **Editor**, lalu klik **Done**.
 
-5. Jalankan bot:
+5. Unduh file JSON kredensial:
+   - Kembali ke halaman **Credentials**, pilih **Service Account** yang telah dibuat.
+   - Pada tab **Keys**, klik **Add Key**, pilih **Create New Key**, dan pilih format **JSON**.
+   - File JSON akan diunduh secara otomatis. Ubah nama file menjadi `credentials.json` dan simpan di direktori utama bot.
+
+6. Buat Gemini API Key:
+   - Masuk ke [AI Studio Google](https://aistudio.google.com/apikey).
+   - Klik **Create API Key**, pilih proyek yang ada, lalu klik **Create API Key**.
+   - Salin API Key yang dihasilkan.
+
+7. Jalankan bot:
    ```bash
    python main.py
    ```
@@ -58,7 +71,7 @@ Bot Telegram untuk membantu mencatat keuangan pribadi Anda. Bot ini memungkinkan
 - `/sheet`: Mendapatkan tautan ke Google Sheet Anda.
 - `/hapus`: Menghapus data keuangan.
 - `/help`: Menampilkan panduan penggunaan.
-- `/hapuspesan`: Mengaktifkan/nonaktifkan penghapusan pesan otomatis.
+- `/hapuspesan`: Mengaktifkan atau menonaktifkan penghapusan pesan otomatis.
 
 ### Contoh Transaksi
 
