@@ -403,7 +403,7 @@ async def multiple_transactions_callback(update: Update, context: ContextTypes.D
         # Add the confirmation message ID to the list
         context.user_data['messages_to_delete'].append(confirmation_message.message_id)
         
-        # Schedule message deletion after 5 seconds
+        # Schedule message deletion after 1 seconds
         context.job_queue.run_once(
             delete_transaction_messages, 
             1,  # 1 seconds delay
@@ -1273,7 +1273,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             # Add the confirmation message ID to the list
             context.user_data['messages_to_delete'].append(confirmation_message.message_id)
             
-            # Schedule message deletion after 5 seconds
+            # Schedule message deletion after 1 seconds
             context.job_queue.run_once(
                 delete_transaction_messages, 
                 1,  # 1 seconds delay
