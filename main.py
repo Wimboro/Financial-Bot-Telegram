@@ -406,7 +406,7 @@ async def multiple_transactions_callback(update: Update, context: ContextTypes.D
         # Schedule message deletion after 5 seconds
         context.job_queue.run_once(
             delete_transaction_messages, 
-            5,  # 5 seconds delay
+            1,  # 1 seconds delay
             data={'chat_id': update.effective_chat.id, 'user_id': user_id}
         )
     
@@ -1276,7 +1276,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             # Schedule message deletion after 5 seconds
             context.job_queue.run_once(
                 delete_transaction_messages, 
-                5,  # 5 seconds delay
+                1,  # 1 seconds delay
                 data={'chat_id': update.effective_chat.id, 'user_id': user_id}
             )
         else:
