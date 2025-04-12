@@ -20,7 +20,7 @@ TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 GOOGLE_SHEETS_CREDENTIALS = os.getenv('GOOGLE_SHEETS_CREDENTIALS')
 SPREADSHEET_ID = os.getenv('SPREADSHEET_ID')
-AUTHORIZED_USER_ID = int(os.getenv('AUTHORIZED_USER_ID'))
+AUTHORIZED_USER_IDS = os.getenv('AUTHORIZED_USER_ID').split(',')
 
 # Configure Gemini API
 genai.configure(api_key=GEMINI_API_KEY)
@@ -40,7 +40,7 @@ SPREADSHEET_URL = f"https://docs.google.com/spreadsheets/d/{SPREADSHEET_ID}"
 
 def is_authorized(user_id):
     """Check if the user is authorized to use the bot."""
-    return str(user_id) == str(AUTHORIZED_USER_ID)
+    return str(user_id) in AUTHORIZED_USER_IDS
 
 async def sheet_link(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
@@ -658,7 +658,7 @@ async def parse_financial_data(text):
        - "minggu lalu", "last week" → subtract 7 days
        - "bulan lalu", "last month" → use the same day in the previous month
     
-    3. Day names:
+     3. Day names:
        - "Senin", "Monday" → use the date of the most recent Monday
        - "Senin lalu", "last Monday" → use the date of the previous Monday (not today if today is Monday)
        - "Senin depan", "next Monday" → use the date of the next Monday (not today if today is Monday)
@@ -925,7 +925,6 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         # If we have multiple lines, process as multiple transactions
         if len(lines) > 1:
-            await update.message.reply_text("🔍 Menganalisis transaksi Anda...")
             transactions = await parse_multiple_transactions(message_text)
             print(f"Parsed {len(transactions)} transactions")
             
@@ -1121,10 +1120,6 @@ async def process_financial_message(update: Update, context: ContextTypes.DEFAUL
     
     # If we have multiple lines, process as multiple transactions
     if len(lines) > 1:
-        # Send analyzing message and store its ID
-        analyzing_message = await update.message.reply_text("🔍 Menganalisis transaksi Anda...")
-        context.user_data['messages_to_delete'].append(analyzing_message.message_id)
-        
         transactions = await parse_multiple_transactions(message_text)
         
         if not transactions:
@@ -1138,10 +1133,6 @@ async def process_financial_message(update: Update, context: ContextTypes.DEFAUL
         # Process multiple transactions
         await process_multiple_transactions(update, context, transactions)
     else:
-        # Send analyzing message and store its ID
-        analyzing_message = await update.message.reply_text("🔍 Menganalisis pesan Anda...")
-        context.user_data['messages_to_delete'].append(analyzing_message.message_id)
-        
         # Single transaction processing
         parsed_data = await parse_financial_data(message_text)
     
