@@ -38,7 +38,7 @@ Bot Telegram ini membantu Anda mencatat keuangan pribadi. Dengan bot ini, Anda d
    GEMINI_API_KEY=api-key-gemini-anda
    GOOGLE_SHEETS_CREDENTIALS=path-ke-google-sheets-credentials.json
    SPREADSHEET_ID=id-google-spreadsheet-anda
-   AUTHORIZED_USER_ID=id-user-telegram-anda
+   AUTHORIZED_USER_ID=id-user-telegram-1,id-user-telegram-2,dst
    ```
 
 4. Buat kredensial untuk mengaktifkan Google Sheets API dan Google Drive API:
