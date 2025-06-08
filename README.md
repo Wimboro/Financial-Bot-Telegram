@@ -1,3 +1,4 @@
+<!-- GitAds-Verify: 8CMQPYZ1RVRFJ62GMPEM2EJBQ4F7K4NF -->
 # Bot Keuangan Telegram
 
 Bot Telegram ini membantu Anda mencatat keuangan pribadi. Dengan bot ini, Anda dapat mencatat transaksi, melihat laporan keuangan, dan mengelola data yang tersimpan di Google Sheets.
