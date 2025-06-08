@@ -1,4 +1,7 @@
 <!-- GitAds-Verify: 8CMQPYZ1RVRFJ62GMPEM2EJBQ4F7K4NF -->
+## GitAds Sponsored
+[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=wimboro/financial-bot-telegram@github)](https://gitads.dev/v1/ad-track?source=wimboro/financial-bot-telegram@github)
+
 # Bot Keuangan Telegram
 
 Bot Telegram ini membantu Anda mencatat keuangan pribadi. Dengan bot ini, Anda dapat mencatat transaksi, melihat laporan keuangan, dan mengelola data yang tersimpan di Google Sheets.
